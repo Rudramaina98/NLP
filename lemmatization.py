@@ -1,9 +1,7 @@
 import nltk
 
-#importing libraries which are used for stemming 
-from nltk.stem import PorterStemmer
-
-#library for stop words
+#importing library which are responsible for performing lemmatization 
+from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 
 
@@ -14,12 +12,11 @@ Again, you can’t connect the dots looking forward; you can only connect them l
 
 sentences = nltk.sent_tokenize(paragraph)
 
-#initializing and creating object for stemming
-stemmer = PorterStemmer()
+#initializing and creating object for lemmatizing
+lemmatizer = WordNetLemmatizer()
 
-#stemming
-#Stop words helps us remove the high-frequency, low-information words like "the," "is," and "and"
+#lemmatization
 for i in range(len(sentences)):
     words = nltk.word_tokenize(sentences[i])
-    words = [stemmer.stem(word) for word in words if word not in set(stopwords.words('english'))]
+    words = [lemmatizer.lemmatize(word) for word in words if word not in set(stopwords.words('english'))]
     sentences[i] = ' '.join(words)
