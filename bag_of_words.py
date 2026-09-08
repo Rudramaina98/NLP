@@ -33,6 +33,6 @@ for i in range(len(sentences)):
 #Count Vectorizer is a data preprocessing library, responsible for creating bag of word document matrix
 #importing & creating object for necessary library
 from sklearn.feature_extraction.text import CountVectorizer
-cv = CountVectorizer(max_features = 1500)
+cv = CountVectorizer()
 #fit_transform helps to create the matrix
 X = cv.fit_transform(corpus).toarray()
